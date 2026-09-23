@@ -40,7 +40,7 @@ nmap -sV -sS 192.168.122.78
 The scan identified SSH running on port `22`.
 
 ## Attack Simulation
-
+![Attack Simulation](screenshots/attack-simulation.png)
 From the Kali Linux machine, I generated repeated failed SSH authentication attempts against the Ubuntu Server.
 
 The purpose was to generate controlled password-guessing activity and observe how the server and monitoring tools responded.
@@ -51,6 +51,7 @@ The purpose was to generate controlled password-guessing activity and observe ho
 - **Port:** `22`
 
 ## Detection and Log Analysis
+![Authentication Logs](screenshots/authentication-log-evidence.png)
 
 I monitored the Ubuntu authentication logs and observed multiple failed SSH login attempts originating from `192.168.122.210`.
 
@@ -61,11 +62,11 @@ I then investigated the corresponding events in Wazuh and reviewed information s
 - Wazuh rule ID
 - JSON event data
 - MITRE ATT&CK mapping
-
+![Wazuh Detection](screenshots/wazuh-detection.png)
 Wazuh classified the repeated authentication activity as brute-force/password-guessing behavior.
 
 ## Mitigation
-
+![Fail2ban Mitigation](screenshots/fail2ban-mitigation.png)
 Fail2ban was configured to monitor SSH authentication failures.
 
 The `sshd` jail used:
