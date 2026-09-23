@@ -28,7 +28,7 @@ The project focused on:
 - Fail2ban mitigation
 
 ## Reconnaissance
-
+![Reconnaissance](screenshots/reconnaissance.png)
 I started by scanning the local network to identify the Ubuntu Server.
 
 After identifying the target, I used Nmap to enumerate open ports and services.
